@@ -33,15 +33,13 @@
                             <div class="d-flex justify-content-around">
                                 {{-- seleccionar dato por id y editarlo --}}
                                 <a href="{{route('datosArbols.edit', $datosArboles)}}" class="btn btn-primary btn-sm">Editar</a>
-                                <a href="{{ route('datosArbols.edit', $datosArboles)}}" class="btn btn-danger btn-sm">Eliminar</a>
 
                                 {{-- seleccionar dato por id y eliminarlo --}}
 
-                                {{-- <form method="Post" action="{{route('datosArboles.destroy',$datosArboles)}}">
+                                <form method="Post" action="{{route('datosArbols.destroy',$datosArboles)}}">
                             @csrf @method('delete')
-                            <button class="bg-transparent border-0 delete-confirm" type="submit"><img src="/img/basura.svg" class="iconoAccion"
-                                alt="eliminar"></button>
-                        </form> --}}
+                            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                        </form>
                             </div>
                         </td>
                     </tr>

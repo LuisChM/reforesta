@@ -107,6 +107,8 @@ class DatosArbolController extends Controller
      */
     public function destroy(DatosArbol $datosArbol)
     {
-        //
+        Storage::delete('public/' . $datosArbol->imagen);
+        $datosArbol->delete();
+        return redirect()->route('datosArbols.index');
     }
 }
