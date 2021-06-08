@@ -20,8 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('datosArbol', 'DatosArbolController')->names('datosArbols');
-
 
 Route::get('storage:link', function () {
     Artisan::call('storage:link');
@@ -30,3 +28,7 @@ Route::get('storage:link', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('datosArbol', 'DatosArbolController')->names('datosArbols');
+
+Route::resource('evento', 'EventoController')->names('eventos');

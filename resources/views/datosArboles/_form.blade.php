@@ -29,7 +29,7 @@
 <div class="form-group">
     <label for="nombrePopular">Nombre Popular:</label>
     <input type="text" class="form-control  @error('nombrePopular') is-invalid @enderror" name="nombrePopular"
-        id="nombrePopular" placeholder="Ingrese el nombrePopular del árbol"
+        id="nombrePopular" placeholder="Ingrese el nombre popular del árbol"
         value="{{old('nombrePopular', $datosArbol->nombrePopular)}}">
     @error('nombrePopular')
     <span class="invalid-feedback" role="alert">
@@ -41,7 +41,7 @@
 <div class="form-group">
     <label for="nombreCientifico">Nombre Cientifico:</label>
     <input type="text" class="form-control  @error('nombreCientifico') is-invalid @enderror" name="nombreCientifico"
-        id="nombreCientifico" placeholder="Ingrese el nombreCientifico del árbol"
+        id="nombreCientifico" placeholder="Ingrese el nombre cientifico del árbol"
         value="{{old('nombreCientifico', $datosArbol->nombreCientifico)}}">
     @error('nombreCientifico')
     <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
 <div class="form-group">
     <label for="descripcion">Descripción</label>
     <textarea class="form-control" name="descripcion" id="descripcion" rows="3"
-        placeholder="Ingrese una descripción (opcional)">{{old('descripcion', $datosArbol->descripcion)}}</textarea>
+        placeholder="Ingrese una descripción">{{old('descripcion', $datosArbol->descripcion)}}</textarea>
 </div>
 
 

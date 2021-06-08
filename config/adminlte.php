@@ -230,13 +230,13 @@ return [
 
         [
             'text' => 'Datos de arboles',
-            'url'  => 'datosArbol',
             'icon_color' => 'cyan',
+            'url'  => 'datosArbol',
         ],
         [
             'text'       => 'Eventos',
             'icon_color' => 'green',
-            'url'        => '#',
+            'url'        => 'evento',
         ],
         [
             'text'       => 'Historial de Eventos',

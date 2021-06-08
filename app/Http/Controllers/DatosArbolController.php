@@ -40,8 +40,14 @@ class DatosArbolController extends Controller
      */
     public function store(SaveDatosArbolRequest $request)
     {
-        DatosArbol::create($request->validated());
-        return redirect()->route('datosArbols.index');
+
+        $datoArbol = (new DatosArbol)->fill($request->validated());
+        if ($request->hasFile('imagen')) {
+            $datoArbol->imagen = $request->file('imagen')->store('uploads', 'public');
+        }
+        $datoArbol->save();       
+         return redirect()->route('datosArbols.index');
+
     }
 
     /**
