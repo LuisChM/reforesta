@@ -18,6 +18,7 @@
                     <th scope="col">Descripción</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Hora</th>
+                    <th scope="col">Estado</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -25,9 +26,11 @@
                 @foreach ($evento as $eventos) 
 
                     <tr>
-                        <td>{{ $eventos->nombrePopular }}</td>
-                        <td>{{ $eventos->nombreCientifico }}</td>
+                        <td>{{ $eventos->tema }}</td>
                         <td>{{ $eventos->descripcion }}</td>
+                        <td>{{ $eventos->fecha }}</td>
+                        <td>{{ $eventos->hora }}</td>
+                        <td>{{ $eventos->estado }}</td>
                         <td>
                             <div class="d-flex justify-content-around">
                                 {{-- seleccionar dato por id y editarlo --}}

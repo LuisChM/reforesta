@@ -15,8 +15,9 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $evento = Evento::orderBy('created_at', 'ASC')->paginate();
-        return view('eventos.index', compact('evento'));    }
+        $evento = Evento::orderBy('created_at', 'ASC')->where('estado','activo')->paginate();
+        return view('eventos.index', compact('evento'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -62,7 +63,9 @@ class EventoController extends Controller
      */
     public function edit(Evento $evento)
     {
-        //
+        return view('eventos.edit', [
+            'evento' => $evento
+        ]);
     }
 
     /**
@@ -72,9 +75,10 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Evento $evento)
+    public function update(SaveEventoRequest $request, Evento $evento)
     {
-        //
+        $evento->update($request->validated());
+        return redirect()->route('eventos.index');
     }
 
     /**
@@ -85,6 +89,8 @@ class EventoController extends Controller
      */
     public function destroy(Evento $evento)
     {
-        //
+        $evento->delete();
+
+        return redirect()->route('eventos.index');
     }
 }

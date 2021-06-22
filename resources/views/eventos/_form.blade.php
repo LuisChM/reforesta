@@ -32,7 +32,7 @@
     <label for="direccion">Dirección:</label>
     <input type="text" class="form-control  @error('direccion') is-invalid @enderror" name="direccion"
         id="direccion" placeholder="Dirección"
-        {{-- value="{{old('direccion', $evento->direccion)}}" --}}
+        value="{{old('direccion', $evento->direccion)}}"
         >
     @error('direccion')
     <span class="invalid-feedback" role="alert">
@@ -80,8 +80,25 @@
     @enderror
 </div>
 
+<div class="form-group ">
+    <label for="estado">Estado de la publicación</label>
+    <br>
+    <div class="form-check form-check-inline">
+        <input checked  class="form-check-input" type="radio" name="estado" id="inlineRadio1" value="borrador" {{ ($evento->estado=="borrador")? "checked" : "" }}>
+        <label class="form-check-label" for="inlineRadio1">Borrador</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="estado" id="inlineRadio2" value="activo" {{ ($evento->estado=="activo")? "checked" : "" }} >
+        <label class="form-check-label" for="inlineRadio2">Activo</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="estado" id="inlineRadio2" value="inactivo" {{ ($evento->estado=="inactivo")? "checked" : "" }} >
+        <label class="form-check-label" for="inlineRadio2">Inactivo</label>
+      </div>
+</div>
 
-<div class="d-flex justify-content-end mt-5">
+
+<div class="d-flex justify-content-end m-5">
     <a class="btn btn-primary mr-3" href="{{route('eventos.index')}}" role="button">Volver</a>
     <button class="btn btn-success text-white">{{$btnText ?? ''}}</button>
 </div>

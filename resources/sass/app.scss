@@ -11,6 +11,52 @@ td {
     vertical-align: middle !important;
 }
 
+.header {
+    background: url(/img/bosque1.jpg);
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mt-6 {
+    margin-top: 8rem;
+}
+
+.mb-6 {
+    margin-bottom: 8rem;
+}
+
+a {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+.barra {
+    padding-top: 3rem;
+}
+.texto-footer {
+font-size: 18px;
+}
+.footer {
+    background-color: #dfe6e9;
+    padding-bottom: 1.5rem;
+    margin-top: 3rem;
+}
+
+
 //Para colocar tres puntos suspensivos en las descripciones
 // div {
 //     width: 230px;

@@ -25,6 +25,7 @@ class SaveEventoRequest extends FormRequest
     {
         return [
             'tema' => 'required',       
+            'estado' => 'required',       
             'descripcion' => 'nullable',       
             'direccion' => 'nullable',       
             'distrito' => 'nullable',       

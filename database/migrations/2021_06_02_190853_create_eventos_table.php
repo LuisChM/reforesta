@@ -23,6 +23,7 @@ class CreateEventosTable extends Migration
             $table->string('lng')->nullable();
             $table->date('fecha')->nullable();
             $table->time('hora')->nullable();
+            $table->string('estado');
             $table->timestamps();
         });
     }

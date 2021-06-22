@@ -16,10 +16,6 @@ use App\Http\Controllers\DatosArbolController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 
 Route::get('storage:link', function () {
     Artisan::call('storage:link');
@@ -27,7 +23,8 @@ Route::get('storage:link', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('detalleEvento/{id}', 'HomeController@show')->name('home');
 
 Route::resource('datosArbol', 'DatosArbolController')->names('datosArbols');
 

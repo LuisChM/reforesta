@@ -18,6 +18,7 @@
             </div>
             <div class="modal-body">
                 <img src="{{ Storage::url($datosArbol->imagen) }}" alt="" style="width:100%;height: 100%;">
+                {{-- <img src="/storage/{{$datosArbol->imagen}}" alt="" style="width:100%;height: 100%;"> --}}
             </div>
         </div>
     </div>
