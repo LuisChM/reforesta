@@ -241,7 +241,7 @@ return [
         [
             'text'       => 'Historial de Eventos',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'url'        => 'historialEvento',
         ],
       
     ],

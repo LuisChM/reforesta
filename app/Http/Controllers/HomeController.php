@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Evento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $evento = Evento::orderBy('created_at', 'ASC')->paginate();
+        $evento = Evento::orderBy('created_at', 'ASC')->where('estado','activo')->orWhere('estado','borrador')->paginate();
         return view('home',  compact('evento'));
     }
 
@@ -33,7 +34,9 @@ class HomeController extends Controller
         // return view('evento',[
         //     'evento'=>$evento,
         // ]);   
-        return view('evento', ['evento' => Evento::findOrFail($id)]);
+        $id =  Crypt::decrypt($id);
+        $evento = Evento::find($id);
+        return view('evento', compact('evento'));
  
     }
 }

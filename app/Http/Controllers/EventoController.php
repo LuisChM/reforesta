@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Evento;
-use App\Http\Requests\SaveEventoRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
+use App\Http\Requests\SaveEventoRequest;
 
 class EventoController extends Controller
 {
@@ -13,9 +14,11 @@ class EventoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $evento = Evento::orderBy('created_at', 'ASC')->where('estado','activo')->paginate();
+        $tema  = $request->get('buscarpor');
+
+        $evento = Evento::orderBy('created_at', 'ASC')->buscar($tema)->where('estado','activo')->orWhere('estado','borrador')->paginate();
         return view('eventos.index', compact('evento'));
     }
 
@@ -61,11 +64,11 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Evento $evento)
+    public function edit($id)
     {
-        return view('eventos.edit', [
-            'evento' => $evento
-        ]);
+        $id =  Crypt::decrypt($id);
+        $evento = Evento::find($id);
+        return view('eventos.edit', compact('evento'));
     }
 
     /**

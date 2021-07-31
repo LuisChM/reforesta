@@ -22,12 +22,11 @@
 </head>
 
 <body>
+
     <header class="header">
 
-        <div class="text-center pt-5 justify-content-center">
-            <h1 class="text-white font-weight-bold text-uppercase">Reforesta Challenge</h1>
-            <a href="#eventos" class=" btn btn-secondary btn-lg font-weight-bold mt-5">Eventos</a>
-        </div>
+        <h1>Reforesta Challenge</h1>
+        <a href="#eventos" class=" btn btn-secondary btn-lg font-weight-bold mt-5">Eventos</a>
 
     </header>
 
@@ -83,8 +82,9 @@
                                 <p class="card-text">Fecha: {{$eventos->fecha}}</p>
                                 <p class="card-text">Hora: {{$eventos->hora}}</p>
                                 <p class="card-text">Punto de encuentro: {{$eventos->direccion}}</p>
-                                <a href="{{ url('detalleEvento/'.$eventos->id)}}" class="btn btn-primary">Ver detalles</a>
-                              
+                                <a href="{{ url('detalleEvento/'.Crypt::encrypt($eventos->id))}}"
+                                    class="btn btn-primary">Ver detalles</a>
+
                             </div>
                         </div>
                         @endforeach

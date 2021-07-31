@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DatosArbol;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\SaveDatosArbolRequest;
 
@@ -14,9 +15,12 @@ class DatosArbolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datosArbol = DatosArbol::orderBy('created_at', 'ASC')->paginate();
+        $nombrePopular  = $request->get('buscarpor');
+        $nombreCientifico  = $request->get('buscarpor');
+
+        $datosArbol = DatosArbol::orderBy('created_at', 'ASC')->buscar($nombrePopular,$nombreCientifico)->paginate();
         return view('datosArboles.index', compact('datosArbol'));
     }
 
@@ -67,11 +71,12 @@ class DatosArbolController extends Controller
      * @param  \App\DatosArbol  $datosArbol
      * @return \Illuminate\Http\Response
      */
-    public function edit(DatosArbol $datosArbol)
+    public function edit($id)
     {
-        return view('datosArboles.edit', [
-            'datosArbol' => $datosArbol
-        ]);
+        
+        $id =  Crypt::decrypt($id);
+        $datosArbol = DatosArbol::find($id);
+        return view('datosArboles.edit', compact('datosArbol'));
     }
 
     /**

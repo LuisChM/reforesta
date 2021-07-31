@@ -11,16 +11,24 @@ td {
     vertical-align: middle !important;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 .header {
     background: url(/img/bosque1.jpg);
-    height: 500px;
+    height: 300px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+
+    padding: 60px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
 }
 
-
-.centrado{
+.centrado {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -48,14 +56,13 @@ h1 {
     padding-top: 3rem;
 }
 .texto-footer {
-font-size: 18px;
+    font-size: 18px;
 }
 .footer {
     background-color: #dfe6e9;
     padding-bottom: 1.5rem;
     margin-top: 3rem;
 }
-
 
 //Para colocar tres puntos suspensivos en las descripciones
 // div {

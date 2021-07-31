@@ -15,8 +15,7 @@
     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
 </form>
 </div>
-        <a class="btn btn-success mb-3" href="{{ route('eventos.create') }}" role="button">Agregar nuevo dato</a>
-    <div class="table-responsive">
+        <div class="table-responsive">
         <table class="table table-light text-center">
             <thead class="thead-light">
                 <tr>
@@ -40,7 +39,7 @@
                         <td>
                             <div class="d-flex justify-content-around">
                                 {{-- seleccionar dato por id y editarlo --}}
-                                <a href="{{route('eventos.edit', $eventos)}}" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="{{route('eventos.edit', Crypt::encrypt($eventos->id))}}" class="btn btn-primary btn-sm">Editar</a>
 
                                 {{-- seleccionar dato por id y eliminarlo --}}
 

@@ -7,11 +7,18 @@
 @stop
 
 @section('content')
-    <div class="d-flex justify-content-end mb-3">
-        <a class="btn btn-success mb-3" href="{{ route('datosArbols.create') }}" role="button">Agregar nuevo dato</a>
+
+<div class="d-flex justify-content-end align-content-center">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 m-2">
+            <input type="search" class="form-control searchInput" name="buscarpor" aria-label="Search" placeholder="Buscar datos de arboles" >
     </div>
+    <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+</form>
+</div>
+<a class="btn btn-success" href="{{ route('datosArbols.create') }}" role="button">Agregar nuevo dato</a>
     <div class="table-responsive">
-        <table class="table table-light text-center">
+        <table class="table table-light text-center mt-4">
             <thead class="thead-light">
                 <tr>
                     <th scope="col">Foto</th>
@@ -25,14 +32,14 @@
                 @foreach ($datosArbol as $datosArboles) 
 
                     <tr>
-                        <td ><img src="{{ Storage::url($datosArboles->imagen) }}" alt="" width="150px" height="150px"></td>
+                        <td ><img src="{{ Storage::url($datosArboles->imagen) }}" alt="Sin imagen guardada" width="150px" height="150px"></td>
                         <td>{{ $datosArboles->nombrePopular }}</td>
                         <td>{{ $datosArboles->nombreCientifico }}</td>
                         <td>{{ $datosArboles->descripcion }}</td>
                         <td>
                             <div class="d-flex justify-content-around">
                                 {{-- seleccionar dato por id y editarlo --}}
-                                <a href="{{route('datosArbols.edit', $datosArboles)}}" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="{{route('datosArbols.edit', Crypt::encrypt($datosArboles->id))}}" class="btn btn-primary btn-sm">Editar</a>
 
                                 {{-- seleccionar dato por id y eliminarlo --}}
 

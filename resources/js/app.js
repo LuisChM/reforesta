@@ -9,9 +9,15 @@ const provider = new OpenStreetMapProvider();
 
 document.addEventListener("DOMContentLoaded", () => {
     if (document.querySelector("#map")) {
-        const lat = document.querySelector("#lat").value === '' ? 9.9349123 : document.querySelector('#lat').value;
-        const lng = document.querySelector("#lng").value === '' ? -84.0902647 : document.querySelector('#lng').value;
-     
+        const lat =
+            document.querySelector("#lat").value === ""
+                ? 9.9349123
+                : document.querySelector("#lat").value;
+        const lng =
+            document.querySelector("#lng").value === ""
+                ? -84.0902647
+                : document.querySelector("#lng").value;
+
         const map = L.map("map").setView([lat, lng], 16);
 
         //eliminar pines previos
@@ -111,10 +117,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     if (document.querySelector("#mapa")) {
-        const lat = document.querySelector("#lat").value === '' ? 9.9349123 : document.querySelector('#lat').value;
-        const lng = document.querySelector("#lng").value === '' ? -84.0902647 : document.querySelector('#lng').value;
-     
-        const mapa = L.map("mapa").setView([lat, lng], 16);
+        const lat =
+            document.querySelector("#lat").value === ""
+                ? 9.9349123
+                : document.querySelector("#lat").value;
+        const lng =
+            document.querySelector("#lng").value === ""
+                ? -84.0902647
+                : document.querySelector("#lng").value;
+
+        const mapa = L.map("mapa").setView([lat, lng], 17);
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
             attribution:
@@ -123,10 +135,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let marker;
 
+        const geocodeService = L.esri.Geocoding.geocodeService();
+
         // agregar el pin
-        marker = new L.marker([lat, lng]).addTo(mapa)
-        .bindPopup()
-        .openPopup();;
- 
+        marker = new L.marker([lat, lng]).addTo(mapa);
+        const posicion = marker.getLatLng();
+        geocodeService
+            .reverse()
+            .latlng(posicion, 16)
+            .run(function(error, resultado) {
+                marker.bindPopup(resultado.address.LongLabel);
+                marker.openPopup();
+            });
     }
 });

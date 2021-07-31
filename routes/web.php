@@ -27,5 +27,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('detalleEvento/{id}', 'HomeController@show')->name('home');
 
 Route::resource('datosArbol', 'DatosArbolController')->names('datosArbols');
+Route::resource('historialEvento', 'HistorialEventosController')->names('historialEventos');
 
 Route::resource('evento', 'EventoController')->names('eventos');

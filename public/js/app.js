@@ -51514,8 +51514,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     };
 
-    var lat = document.querySelector("#lat").value === '' ? 9.9349123 : document.querySelector('#lat').value;
-    var lng = document.querySelector("#lng").value === '' ? -84.0902647 : document.querySelector('#lng').value;
+    var lat = document.querySelector("#lat").value === "" ? 9.9349123 : document.querySelector("#lat").value;
+    var lng = document.querySelector("#lng").value === "" ? -84.0902647 : document.querySelector("#lng").value;
     var map = L.map("map").setView([lat, lng], 16); //eliminar pines previos
 
     var markers = new L.FeatureGroup().addTo(map);
@@ -51540,20 +51540,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (document.querySelector("#mapa")) {
-    var _lat = document.querySelector("#lat").value === '' ? 9.9349123 : document.querySelector('#lat').value;
+    var _lat = document.querySelector("#lat").value === "" ? 9.9349123 : document.querySelector("#lat").value;
 
-    var _lng = document.querySelector("#lng").value === '' ? -84.0902647 : document.querySelector('#lng').value;
+    var _lng = document.querySelector("#lng").value === "" ? -84.0902647 : document.querySelector("#lng").value;
 
-    var mapa = L.map("mapa").setView([_lat, _lng], 16);
+    var mapa = L.map("mapa").setView([_lat, _lng], 17);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mapa);
 
-    var _marker; // agregar el pin
+    var _marker;
+
+    var _geocodeService = L.esri.Geocoding.geocodeService(); // agregar el pin
 
 
-    _marker = new L.marker([_lat, _lng]).addTo(mapa).bindPopup().openPopup();
-    ;
+    _marker = new L.marker([_lat, _lng]).addTo(mapa);
+
+    var posicion = _marker.getLatLng();
+
+    _geocodeService.reverse().latlng(posicion, 16).run(function (error, resultado) {
+      _marker.bindPopup(resultado.address.LongLabel);
+
+      _marker.openPopup();
+    });
   }
 });
 

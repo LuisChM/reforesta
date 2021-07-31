@@ -10946,12 +10946,20 @@ td {
   vertical-align: middle !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .header {
   background: url(/img/bosque1.jpg);
-  height: 500px;
+  height: 300px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  padding: 60px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
 }
 
 .centrado {
