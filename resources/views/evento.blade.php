@@ -50,13 +50,8 @@
         <input type="hidden" name="lng" id="lng" value="{{$evento->lng}}">
     </div>
 
-    <footer class="footer">
-        <div class="contenedor">
-            <div class="barra text-center">
-                <span class="text-black-50 texto-footer"> +506 2101-5332 | ronny@gaia.gives</span>
-            </div>
-        </div>
-    </footer>
+    @include('partial.footer')   
+
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"

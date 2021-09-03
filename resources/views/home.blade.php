@@ -25,8 +25,10 @@
 
     <header class="header">
 
-        <h1>Reforesta Challenge</h1>
-        <a href="#eventos" class=" btn btn-secondary btn-lg font-weight-bold mt-5">Eventos</a>
+        <h1>#ReforestaChallenge</h1>
+        <a href="#eventos" class=" btn btn-secondary btn-lg mt-5">Eventos</a>
+        <a href="{{ url('eventoPasado')}}" class=" btn btn-secondary btn-lg mt-5">Eventos Pasados</a>
+        <a href="{{ url('nuestroArbol')}}" class=" btn btn-secondary btn-lg mt-5">Nuestros Árboles</a>
 
     </header>
 
@@ -38,7 +40,7 @@
             </div>
 
             <div class="col-12 col-md-4 col-lg-6">
-                <p class="text-justify">
+                <p class="text-justify lead">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
                     and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
@@ -49,10 +51,10 @@
             </div>
         </div>
 
-        <div class="row mt-5 align-items-center justify-content-between">
+        <div class="row my-5 align-items-center justify-content-between">
 
             <div class="col-12 col-md-4 col-lg-6">
-                <p class="text-justify">
+                <p class="text-justify lead">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
                     and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
@@ -66,10 +68,30 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center my-4">
+                    <h2>Árboles Plantados</h2>
+                    <h3 class="contador">{{$contador[0]->arbolesSembrados}}</h3>
+                    <img src="img/undraw_environment_iaus.png" alt="" width="400px" height="250px">
+                </div>
+            </div>
+            <div class="col-12">
+                <div>
+                    <h2>Patrocinadores y Colaboradores</h2>
+                    <div class="d-flex justify-content-center align-items-center flex-wrap">
+                        @foreach ($patrocinador as $patrocinadores)
+                        <a href="{{$patrocinadores->urlPatrocinio}}" target="_blank" title="Ver información"><img
+                                src="{{Storage::url($patrocinadores->imagen)}}" alt="" class="" width="200px"
+                                height="100px" style="margin: 10px"></a>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <div id="eventos" class="m-5">
-
             {{--video 14 carpeta 31  --}}
             <h2 class="mb-5">Próximos Eventos</h2>
             <div class="row">
@@ -99,13 +121,7 @@
 
     </div>
 
-    <footer class="footer">
-        <div class="contenedor">
-            <div class="barra text-center">
-                <span class="text-black-50 texto-footer"> +506 2101-5332 | ronny@gaia.gives</span>
-            </div>
-        </div>
-    </footer>
+    @include('partial.footer')
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

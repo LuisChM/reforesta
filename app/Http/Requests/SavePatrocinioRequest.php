@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SaveDatosArbolRequest extends FormRequest
+class SavePatrocinioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,8 @@ class SaveDatosArbolRequest extends FormRequest
     public function rules()
     {
         return [
-            'imagen' => 'required|image',
-            'nombrePopular' => 'nullable|unique:datos_arbols,nombrePopular',
-            'nombreCientifico' => 'required|unique:datos_arbols,nombrePopular',
-            'descripcion' => 'nullable',       
-         ];
+            'urlPatrocinio' => 'nullable',
+            'imagen' => 'required',
+        ];
     }
 }

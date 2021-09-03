@@ -191,7 +191,7 @@ return [
     'dashboard_url' => 'home',
     'logout_url' => 'logout',
     'login_url' => 'login',
-    'register_url' => 'register',
+    'register_url' => false,
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
@@ -242,6 +242,16 @@ return [
             'text'       => 'Historial de Eventos',
             'icon_color' => 'yellow',
             'url'        => 'historialEvento',
+        ],
+        [
+            'text'       => 'Contador Arboles Sembrados',
+            'icon_color' => 'red',
+            'url'        => 'contador',
+        ],
+        [
+            'text'       => 'Patrocinadores',
+            'icon_color' => 'orange',
+            'url'        => 'patrocinador',
         ],
       
     ],

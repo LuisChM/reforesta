@@ -53,21 +53,21 @@ h1 {
 }
 
 .barra {
-    padding-top: 3rem;
+    padding-top: 1rem;
 }
 .texto-footer {
     font-size: 18px;
 }
 .footer {
     background-color: #dfe6e9;
-    padding-bottom: 1.5rem;
-    margin-top: 3rem;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
 }
 
-//Para colocar tres puntos suspensivos en las descripciones
-// div {
-//     width: 230px;
-//     white-space: nowrap;
-//     text-overflow: ellipsis;
-//     overflow: hidden;
-// }
+
+.contador{
+    font-size: 80px;
+    font-weight: bold;
+    color: #60b644;
+
+}

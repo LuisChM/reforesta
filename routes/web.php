@@ -21,12 +21,19 @@ Route::get('storage:link', function () {
     Artisan::call('storage:link');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
+// Auth::routes(['register' => false]);
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('detalleEvento/{id}', 'HomeController@show')->name('home');
+Route::get('detalleEvento/{id}', 'HomeController@eventoActual')->name('home');
+Route::get('eventoPasado', 'HomeController@eventoPasado')->name('home');
+Route::get('nuestroArbol', 'HomeController@nuestroArbol')->name('home');
 
 Route::resource('datosArbol', 'DatosArbolController')->names('datosArbols');
 Route::resource('historialEvento', 'HistorialEventosController')->names('historialEventos');
+Route::resource('contador', 'ContadorController')->names('contadors');
+Route::resource('patrocinador', 'PatrocinadorController')->names('patrocinadors');
 
 Route::resource('evento', 'EventoController')->names('eventos');
+
+

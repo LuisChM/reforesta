@@ -10,6 +10,10 @@ use App\Http\Requests\SaveDatosArbolRequest;
 
 class DatosArbolController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -72,8 +76,7 @@ class DatosArbolController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        
+    {        
         $id =  Crypt::decrypt($id);
         $datosArbol = DatosArbol::find($id);
         return view('datosArboles.edit', compact('datosArbol'));
@@ -86,13 +89,7 @@ class DatosArbolController extends Controller
      * @param  \App\DatosArbol  $datosArbol
      * @return \Illuminate\Http\Response
      */
-    // public function update(SaveDatosArbolRequest $request, DatosArbol $datosArbol)
-    // {
-    //     $datosArbol->update($request->validated());
-    //     return redirect()->route('datosArbols.index');
-    // }
-
-
+ 
     public function update(SaveDatosArbolRequest $request, $id)
     {
         $dato = $request->validated();

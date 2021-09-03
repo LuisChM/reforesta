@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDatosArbolsTable extends Migration
+class CreatePatrocinadorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateDatosArbolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('datos_arbols', function (Blueprint $table) {
+        Schema::create('patrocinadors', function (Blueprint $table) {
             $table->id();
+            $table->string('urlPatrocinio')->nullable();
             $table->string('imagen');
-            $table->string('nombrePopular')->nullable();
-            $table->string('nombreCientifico');
-            $table->longText('descripcion')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateDatosArbolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('datos_arbols');
+        Schema::dropIfExists('patrocinadors');
     }
 }

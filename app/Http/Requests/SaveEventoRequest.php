@@ -32,7 +32,8 @@ class SaveEventoRequest extends FormRequest
             'lat' => 'nullable',       
             'lng' => 'nullable',       
             'fecha' => 'nullable',       
-            'hora' => 'nullable',       
+            'horaInicio' => 'nullable',       
+            'horaFinaliza' => 'nullable',       
         ];
     }
 }
