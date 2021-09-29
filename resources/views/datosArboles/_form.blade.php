@@ -26,7 +26,6 @@
     <input type="file" class="form-control-file" name="imagen" id="imagen" accept="image/*">
 </div>
 
-
 <div class="form-group">
     <label for="nombrePopular">Nombre Popular:</label>
     <input type="text" class="form-control  @error('nombrePopular') is-invalid @enderror" name="nombrePopular"

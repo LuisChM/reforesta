@@ -15,8 +15,8 @@ class CreateEventosTable extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();           
-            $table->string('tema');
-            $table->string('descripcion')->nullable();
+            $table->string('tema')->unique();
+            $table->string('descripcion')->nullable()->unique();
             $table->string('direccion')->nullable();
             $table->string('distrito')->nullable();
             $table->string('lat')->nullable();

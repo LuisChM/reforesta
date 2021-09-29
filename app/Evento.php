@@ -14,4 +14,10 @@ class Evento extends Model
       return $query->where('tema', 'LIKE', "%$tema%");
     }
   }
+
+  public function arboles()
+  {
+      return $this->belongsToMany(DatosArbol::class, 'asignar_arboleseventos');
+  }
+
 }

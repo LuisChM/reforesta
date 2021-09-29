@@ -16,7 +16,7 @@ class ContadorController extends Controller
      */
     public function index()
     {
-        $contador = Contador::all();
+        $contador = Contador::select('*')->get();
         return view('contadores.index', compact('contador'));  
       }
 

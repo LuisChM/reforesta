@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DatosArbol;
 use App\Evento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -22,7 +23,7 @@ class EventoController extends Controller
     {
         $tema  = $request->get('buscarpor');
 
-        $evento = Evento::orderBy('created_at', 'ASC')->buscar($tema)->where('estado','activo')->orWhere('estado','borrador')->paginate();
+        $evento = Evento::orderBy('created_at', 'ASC')->buscar($tema)->where('estado', 'activo')->orWhere('estado', 'borrador')->paginate();
         return view('eventos.index', compact('evento'));
     }
 
@@ -33,8 +34,11 @@ class EventoController extends Controller
      */
     public function create()
     {
+        $arboles = DatosArbol::all();
+
         return view('eventos.create', [
-            'evento' => new Evento
+            'evento' => new Evento,
+            'arboles' => $arboles
         ]);
     }
 
@@ -46,7 +50,9 @@ class EventoController extends Controller
      */
     public function store(SaveEventoRequest $request)
     {
-        Evento::create($request->validated());
+        $evento = Evento::create($request->validated());
+        $evento->arboles()->attach($request->arboles);
+        $evento->save();
 
         return redirect()->route('eventos.index');
     }
@@ -72,7 +78,10 @@ class EventoController extends Controller
     {
         $id =  Crypt::decrypt($id);
         $evento = Evento::find($id);
-        return view('eventos.edit', compact('evento'));
+
+        $arboles = DatosArbol::all();
+
+        return view('eventos.edit', compact('evento', 'arboles'));
     }
 
     /**
@@ -84,7 +93,9 @@ class EventoController extends Controller
      */
     public function update(SaveEventoRequest $request, Evento $evento)
     {
+        // return $request->all();
         $evento->update($request->validated());
+        $evento->arboles()->sync($request->arboles);
         return redirect()->route('eventos.index');
     }
 

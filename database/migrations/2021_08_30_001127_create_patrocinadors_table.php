@@ -15,7 +15,7 @@ class CreatePatrocinadorsTable extends Migration
     {
         Schema::create('patrocinadors', function (Blueprint $table) {
             $table->id();
-            $table->string('urlPatrocinio')->nullable();
+            $table->string('urlPatrocinio')->nullable()->unique();
             $table->string('imagen');
             $table->timestamps();
         });

@@ -15,5 +15,9 @@ class DatosArbol extends Model
         return $query->where('nombrePopular', 'LIKE', "%$nombrePopular%")
                     ->orWhere('nombreCientifico', 'LIKE', "%$nombreCientifico%");}
     }
-
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class);
+    } 
+ 
 }

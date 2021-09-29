@@ -7,12 +7,21 @@
 @stop
 
 @section('content')
-
+{{-- {{dd($contador)}} --}}
 <div class="container">
     <h2>Arboles Sembrados</h2>
-    <p>{{$contador[0]->arbolesSembrados}}</p>
 
-    <a href="{{route('contadors.edit', Crypt::encrypt($contador[0]->id))}}" class="btn btn-primary btn-sm">Editar</a>
+    @if (count($contador) >= 1)
+    @foreach ($contador as $item)
+
+    <p>{{$item->arbolesSembrados}}</p>
+    <a href="{{route('contadors.edit', Crypt::encrypt($item->id))}}" class="btn btn-primary btn-sm">Editar</a>
+
+    @endforeach
+    @else
+    <a class="btn btn-success mb-3" href="{{ route('eventos.create') }}" role="button">Iniciar el contador</a>
+
+    @endif
 
 </div>
 
