@@ -31,6 +31,7 @@
 
 
     @include('partial.footer')
+    @include('sweetalert::alert')
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

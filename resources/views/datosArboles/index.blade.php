@@ -8,6 +8,8 @@
 
 @section('content')
 
+{{-- {{dd($datosArbol)}} --}}
+
 <div class="d-flex justify-content-end align-content-center">
     <form class="form-inline">
         <div class="form-group mx-sm-3 m-2">

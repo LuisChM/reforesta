@@ -15,11 +15,12 @@ class PatrocinadorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $patrocinador = Patrocinador::orderBy('created_at', 'ASC')->paginate();
-        return view('patrocinadores.index', compact('patrocinador')); 
-       }
+        $nombrePatrocinador  = $request->get('buscarpor');
+        $patrocinador = Patrocinador::orderBy('created_at', 'ASC')->buscar($nombrePatrocinador)->paginate();
+        return view('patrocinadores.index', compact('patrocinador'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +31,7 @@ class PatrocinadorController extends Controller
     {
         return view('patrocinadores.create', [
             'patrocinador' => new Patrocinador
-        ]);    
+        ]);
     }
 
     /**
@@ -45,8 +46,9 @@ class PatrocinadorController extends Controller
         if ($request->hasFile('imagen')) {
             $patrocinador->imagen = $request->file('imagen')->store('uploads', 'public');
         }
-        $patrocinador->save();       
-         return redirect()->route('patrocinadors.index');    }
+        $patrocinador->save();
+        return redirect()->route('patrocinadors.index')->with('toast_success', 'Datos Creados');
+    }
 
     /**
      * Display the specified resource.
@@ -69,7 +71,8 @@ class PatrocinadorController extends Controller
     {
         $id =  Crypt::decrypt($id);
         $patrocinador = Patrocinador::find($id);
-        return view('patrocinadores.edit', compact('patrocinador'));    }
+        return view('patrocinadores.edit', compact('patrocinador'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -91,7 +94,8 @@ class PatrocinadorController extends Controller
 
         $patrociandor = Patrocinador::findOrFail($id);
 
-        return redirect()->route('patrocinadors.index');    }
+        return redirect()->route('patrocinadors.index')->with('toast_success', 'Datos Actualizados');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -103,5 +107,6 @@ class PatrocinadorController extends Controller
     {
         Storage::delete('public/' . $patrocinador->imagen);
         $patrocinador->delete();
-        return redirect()->route('patrocinadors.index');    }
+        return redirect()->route('patrocinadors.index');
+    }
 }

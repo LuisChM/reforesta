@@ -26,6 +26,17 @@
     <input type="file" class="form-control-file" name="imagen" id="imagen" accept="image/*">
 </div>
 
+<div class="form-group">
+    <label for="nombrePatrocinador">Nombre del patrocinador:</label>
+    <input type="text" class="form-control  @error('nombrePatrocinador') is-invalid @enderror" name="nombrePatrocinador"
+        id="nombrePatrocinador" placeholder="Ingrese el nombre del patrocinador"
+        value="{{old('nombrePatrocinador', $patrocinador->nombrePatrocinador)}}">
+    @error('nombrePatrocinador')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{$message}}</strong>
+    </span>
+    @enderror
+</div>
 
 <div class="form-group">
     <label for="urlPatrocinio">URL del patrocinador:</label>
@@ -38,6 +49,7 @@
     </span>
     @enderror
 </div>
+
 
 <div class="d-flex justify-content-end mt-5">
     <a class="btn btn-primary mr-3" href="{{route('patrocinadors.index')}}" role="button">Volver</a>

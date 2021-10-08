@@ -54,7 +54,7 @@ class EventoController extends Controller
         $evento->arboles()->attach($request->arboles);
         $evento->save();
 
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.index')->with('toast_success', 'Datos Creados');
     }
 
     /**
@@ -96,7 +96,7 @@ class EventoController extends Controller
         // return $request->all();
         $evento->update($request->validated());
         $evento->arboles()->sync($request->arboles);
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.index')->with('toast_success', 'Datos Actualizados');
     }
 
     /**

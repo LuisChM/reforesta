@@ -22,6 +22,7 @@
             <thead class="thead-light">
                 <tr>
                     <th scope="col">Imagen</th>
+                    <th scope="col">Patrocinador</th>
                     <th scope="col">URL</th>
                     <th scope="col"></th>
                 </tr>
@@ -31,6 +32,7 @@
 
                     <tr>
                         <td ><img src="{{ Storage::url($patrocinadores->imagen) }}" alt="Sin imagen guardada" width="150px" height="150px"></td>
+                        <td>{{ $patrocinadores->nombrePatrocinador }}</td>
                         <td>{{ $patrocinadores->urlPatrocinio }}</td>
                         <td>
                             <div class="d-flex justify-content-around">

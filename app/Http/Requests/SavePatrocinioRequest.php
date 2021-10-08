@@ -25,6 +25,7 @@ class SavePatrocinioRequest extends FormRequest
     {
         return [
             'urlPatrocinio' => 'nullable',
+            'nombrePatrocinador' => 'required',
             'imagen' => 'required',
         ];
     }

@@ -9,6 +9,7 @@
 @section('content')
 {{-- {{dd($contador)}} --}}
 <div class="container">
+
     <h2>Arboles Sembrados</h2>
 
     @if (count($contador) >= 1)
@@ -19,7 +20,7 @@
 
     @endforeach
     @else
-    <a class="btn btn-success mb-3" href="{{ route('eventos.create') }}" role="button">Iniciar el contador</a>
+    <a class="btn btn-success mb-3" href="{{ route('contadors.create') }}" role="button">Iniciar el contador</a>
 
     @endif
 
@@ -35,6 +36,6 @@
 
 @section('js')
 <script>
-
 </script>
+
 @stop

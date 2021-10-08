@@ -16,8 +16,10 @@ class HistorialEventosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $evento = Evento::orderBy('created_at', 'ASC')->where('estado','inactivo')->paginate();
+    public function index(Request $request)
+    { 
+        $tema  = $request->get('buscarpor');
+
+        $evento = Evento::orderBy('created_at', 'ASC')->buscar($tema)->where('estado','inactivo')->paginate();
         return view('historialEventos.index', compact('evento'));
     }}

@@ -24,7 +24,7 @@ class DatosArbolController extends Controller
         $nombrePopular  = $request->get('buscarpor');
         $nombreCientifico  = $request->get('buscarpor');
 
-        $datosArbol = DatosArbol::orderBy('created_at', 'ASC')->buscar($nombrePopular,$nombreCientifico)->paginate();
+        $datosArbol = DatosArbol::orderBy('created_at', 'ASC')->buscar($nombrePopular, $nombreCientifico)->paginate();
         return view('datosArboles.index', compact('datosArbol'));
     }
 
@@ -53,9 +53,8 @@ class DatosArbolController extends Controller
         if ($request->hasFile('imagen')) {
             $datoArbol->imagen = $request->file('imagen')->store('uploads', 'public');
         }
-        $datoArbol->save();       
-         return redirect()->route('datosArbols.index');
-
+        $datoArbol->save();
+        return redirect()->route('datosArbols.index')->with('toast_success', 'Datos Creados');
     }
 
     /**
@@ -76,7 +75,7 @@ class DatosArbolController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {        
+    {
         $id =  Crypt::decrypt($id);
         $datosArbol = DatosArbol::find($id);
         return view('datosArboles.edit', compact('datosArbol'));
@@ -89,7 +88,7 @@ class DatosArbolController extends Controller
      * @param  \App\DatosArbol  $datosArbol
      * @return \Illuminate\Http\Response
      */
- 
+
     public function update(SaveDatosArbolRequest $request, $id)
     {
         $dato = $request->validated();
@@ -103,7 +102,7 @@ class DatosArbolController extends Controller
 
         $datoArbol = DatosArbol::findOrFail($id);
 
-        return redirect()->route('datosArbols.index');
+        return redirect()->route('datosArbols.index')->with('toast_success', 'Datos Actualizados');
     }
 
 
