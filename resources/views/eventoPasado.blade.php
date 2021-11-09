@@ -13,26 +13,28 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;600&display=swap" rel="stylesheet">
+
 
     <!-- Styles -->
+    <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-
-    <header class="header">
-
-        <h1>#ReforestaChallenge</h1>
-
+    <header>
+        <div class="contenido-hero d-flex justify-content-center align-items-center">
+            <h1 class="titulo">#ReforestaChallenge</h1>
+        </div>
     </header>
+
+    @include('partial.navInicio')
 
 
     <div class="container ">
         <div id="eventos" class="m-5">
-            <h2 class="mb-5">Eventos Pasados</h2>
+            <h2 class="font-weight-bold text-center mt-5 mt-lg-0 mb-3">Eventos Pasados</h2>
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-around flex-wrap">

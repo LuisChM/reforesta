@@ -16,7 +16,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="arbolesSembrados">Cantidad de arboles sembrados:</label>
-                        <input type="number" class="form-control  @error('arbolesSembrados') is-invalid @enderror"
+                        <input type="number" class="form-control @error('arbolesSembrados') is-invalid @enderror" min="0" 
                             name="arbolesSembrados" id="arbolesSembrados"
                             value="{{old('arbolesSembrados', $contador->arbolesSembrados)}}">
                         @error('arbolesSembrados')
@@ -28,7 +28,7 @@
 
                     <div class="d-flex justify-content-end mt-5">
                         <a class="btn btn-primary mr-3" href="{{route('contadors.index')}}" role="button">Volver</a>
-                        <button class="btn btn-success text-white">Actualizar</button>
+                        <button class="btn btn-success text-white">Guardar</button>
                     </div>
 
                 </form>

@@ -43,7 +43,7 @@
 
                                 <form method="Post" action="{{route('patrocinadors.destroy',$patrocinadores)}}">
                             @csrf @method('delete')
-                            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                            <button class="btn btn-danger btn-sm delete-confirm" type="submit">Eliminar</button>
                         </form>
                             </div>
                         </td>
@@ -69,7 +69,5 @@
     @stop
     
     @section('js')
-        <script>
-    
-        </script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @stop

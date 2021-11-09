@@ -12,59 +12,114 @@ td {
 }
 
 html {
+    box-sizing: border-box;
+    font-size: 62.5%!important;
     scroll-behavior: smooth;
   }
-
-.header {
-    background: url(/img/bosque1.jpg);
-    height: 300px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-    padding: 60px;
-    text-align: center;
-    color: white;
-    font-size: 30px;
-}
-
-.centrado {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.mt-6 {
-    margin-top: 8rem;
-}
-
-.mb-6 {
-    margin-bottom: 8rem;
-}
-
-a {
-    text-decoration: none !important;
-    cursor: pointer;
-}
-
-h1 {
-    font-size: 60px;
-}
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px; /* Set the fixed height of the footer here */
-    line-height: 60px; /* Vertically center the text there */
-    background-color: #dfe6e9;
-    text-align: center;
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
   }
-
-.contador{
-    font-size: 80px;
+  body {
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+  
+  p {
+    font-size: 1.5rem;
+  }
+  
+  h2{
+      font-size: 2.8rem;
+  }
+  
+  .contenido-hero {
+    background-image: url(/img/leaves-hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 45rem;
+  }
+  
+  .titulo {
+    color: #ececec;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #60b644;
-
-}
+  }
+  
+  @media (min-width: 768px) {
+    .titulo {
+      font-size: 5rem;
+    }
+  }
+  
+  .nav-inicio {
+    background-color: #e9b97c;
+  }
+  
+  .nav-inicio a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    padding: 1.8rem;
+    transition: 0.3s;
+  }
+  
+  .nav-inicio a:hover {
+    background-color: #cf974f;
+    color: whitesmoke;
+  }
+  
+  @media (min-width: 768px) {
+    .nav-inicio a {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .section-margin{
+  padding: 6rem 0;
+  }
+  
+  .imagen-main, .imagen-contador{
+      height: 35rem;
+      width: 100%;
+  }
+  @media ( min-width: 768px ) {
+      .imagen-main{
+          height: 40rem;
+          width: 50rem;/*58*/
+      }
+      .imagen-contador{
+        height: 70rem;
+      }
+  }
+  
+  @media ( max-width: 768px ) {
+      .centrar-imagen{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+  }
+  
+  .numero-contador{
+    font-size: 8rem;
+    font-weight: bold;
+    color: #60b644;}
+  
+    .footer {
+      position: absolute;
+      /* bottom: 0; */
+      width: 100%;
+      height: 60px; /* Set the fixed height of the footer here */
+      line-height: 60px; /* Vertically center the text there */
+      background-color: #dfe6e9;
+      text-align: center;
+    }
+  
+  

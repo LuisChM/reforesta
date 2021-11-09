@@ -10,30 +10,124 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
+    <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-    <main role="main" class="container">
-    
-    
+
+    <header>
+        <div class="contenido-hero d-flex justify-content-center align-items-center">
+            <h1 class="titulo">#ReforestaChallenge</h1>
+        </div>
+    </header>
+
+    @include('partial.navInicio')
+
+    <main class="container">
+        <article class="mt-5">
+            <h2 class="font-weight-bold text-center mt-5 mt-lg-0 mb-3">Sobre Nosotros</h2>
+            @if (!is_null($paginaPrincipal))
+            <p>{{$paginaPrincipal->nosotros}}</p>
+            @endif
+        </article><!-- /article sobre nosotros -->
+
+        <section class="section-margin">
+            <div class="row d-flex flex-sm-row flex-wrap flex-column justify-content-around align-items-center">
+                <div class="col-lg-7 centrar-imagen">
+                    <img class="imagen-main " src="img/ecology.jpg" alt="">
+                </div>
+                <div class="col-lg-5">
+                    <h2 class="font-weight-bold text-center mt-5 mt-lg-0">Misión</h2>
+                    @if (!is_null($paginaPrincipal))
+                    <p class="text-justify">{{$paginaPrincipal->mision}}</p>
+                    @endif
+                </div>
+            </div>
+        </section><!-- /sectio mision  -->
+
+        <section class="section-margin">
+            <div class="row d-flex flex-lg-row flex-column-reverse justify-content-around align-items-center">
+                <div class="col-lg-5">
+                    <h2 class="font-weight-bold text-center mt-5 mt-lg-0">Visión</h2>
+                    @if (!is_null($paginaPrincipal))
+                    <p class="text-justify">{{$paginaPrincipal->vision}}</p>
+                    @endif
+                </div>
+                <div class="col-lg-7 centrar-imagen d-flex justify-content-lg-end">
+                    <img class="imagen-main" src="img/plant.jpg" alt="">
+                </div>
+            </div>
+        </section><!-- /section vision -->
+
+        <section class="section-margin d-flex justify-content-center align-items-center flex-column">
+            <h2 class="font-weight-bold text-center mt-5 mt-lg-0">Árboles Plantados</h2>
+            {{-- validar si hay datos en el contador --}}
+            @if (is_null($contador))
+            <h3 class="my-5"> Pronto estará disponible la cantidad de árboles que hemos plantado juntos</h3>
+            @else
+            <p class="numero-contador">{{$contador->arbolesSembrados}}</p>
+            @endif
+            <img src="img/hands-plant.jpg" alt="" class="imagen-contador">
+        </section><!-- /section arboles plantados -->
+
+        @if (!$patrocinador->isEmpty())
+        <section class="section-margin">
+            <h2 class="font-weight-bold text-center mt-5 mt-lg-0">Patrocinadores y Colaboradores</h2>
+            <div class="d-flex justify-content-center align-items-center flex-wrap">
+                @foreach ($patrocinador as $patrocinadores)
+                <a href="{{$patrocinadores->urlPatrocinio}}" target="_blank" title="Ver información"><img
+                        src="{{Storage::url($patrocinadores->imagen)}}" alt="" class="" width="200px" height="100px"
+                        style="margin: 10px"></a>
+                @endforeach
+            </div>
+        </section><!-- /section patrocinadores y colaboradores -->
+        @endif
+
+        <section class="section-margin" id="eventos">
+            <h2 class="font-weight-bold text-center mt-5 mt-lg-0">Próximos Eventos</h2>
+            {{--video 14 carpeta 31 --}}
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-around flex-wrap">
+                        @if ($evento->isEmpty())
+                        <h3 class="my-5">Los eventos con los que esperamos contar con su participación se mostrarán aqui
+                            próximamente
+                        </h3>
+                        @else
+
+                        @foreach ($evento as $eventos)
+                        <div class="card mb-3" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$eventos->tema}}</h5>
+                                <p class="card-text">Fecha: {{$eventos->fecha}}</p>
+                                <p class="card-text">Hora: {{$eventos->hora}}</p>
+                                <p class="card-text">Punto de encuentro: {{$eventos->direccion}}</p>
+                                <a href="{{ url('detalleEvento/'.Crypt::encrypt($eventos->id))}}"
+                                    class="btn btn-primary">Ver detalles</a>
+
+                            </div>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section><!-- /section proximos eventos -->
     </main>
 
-
-
-
-    @include('partial.footer')
-    @include('sweetalert::alert')
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">+506 2101-5332 | ronny@gaia.gives</span>
+        </div>
+    </footer>
 
     <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 
 </html>

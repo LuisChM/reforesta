@@ -34,7 +34,8 @@ class EventoController extends Controller
      */
     public function create()
     {
-        $arboles = DatosArbol::all();
+        
+        $arboles = DatosArbol::pluck('nombrePopular', 'id');
 
         return view('eventos.create', [
             'evento' => new Evento,
@@ -109,6 +110,6 @@ class EventoController extends Controller
     {
         $evento->delete();
 
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.index')->with('toast_success', 'Datos Eliminados');
     }
 }

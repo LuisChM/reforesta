@@ -17,7 +17,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="arbolesSembrados">Cantidad de arboles sembrados:</label>
-                        <input type="number" class="form-control  @error('arbolesSembrados') is-invalid @enderror"
+                        <input type="number" class="form-control @error('arbolesSembrados') is-invalid @enderror" min="0"
                             name="arbolesSembrados" id="arbolesSembrados"
                             value="{{old('arbolesSembrados', $contador->arbolesSembrados)}}">
                         @error('arbolesSembrados')

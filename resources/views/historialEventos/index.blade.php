@@ -10,7 +10,7 @@
 <div class="d-flex justify-content-end align-content-center">
     <form class="form-inline">
         <div class="form-group mx-sm-3 m-4">
-            <input type="search" class="form-control searchInput" name="buscarpor" aria-label="Search" placeholder="Buscar datos de arboles">
+            <input type="search" class="form-control searchInput" name="buscarpor" aria-label="Search" placeholder="Buscar eventos">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Buscar</button>
     </form>
@@ -47,7 +47,7 @@
 
                         <form method="Post" action="{{route('eventos.destroy',$eventos)}}">
                             @csrf @method('delete')
-                            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                            <button class="btn btn-danger btn-sm delete-confirm" type="submit">Eliminar</button>
                         </form>
                     </div>
                 </td>
@@ -73,7 +73,5 @@
 @stop
 
 @section('js')
-<script>
-
-</script>
+<script src="{{ asset('js/app.js') }}"></script>
 @stop

@@ -17,7 +17,7 @@ class ContadorController extends Controller
      */
     public function index()
     {
-        $contador = Contador::select('*')->get();
+        $contador = Contador::all();
         return view('contadores.index', compact('contador'));
     }
 
@@ -41,7 +41,7 @@ class ContadorController extends Controller
      */
     public function store(UpdateContadorRequest $request)
     {
-        $contador = Contador::create($request->validated());
+        Contador::create($request->validated());
         return redirect()->route('contadors.index')->with('toast_success', 'Datos Creados');
     }
 

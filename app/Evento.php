@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evento extends Model
 {
-  protected $fillable = ['tema', 'estado', 'descripcion', 'direccion', 'distrito', 'lat', 'lng', 'fecha', 'horaInicio', 'horaFinaliza'];
+  protected $fillable = ['tema', 'estado', 'descripcion', 'direccion', 'distrito', 'lat', 'lng', 'fecha', 'horaInicio', 'horaFinaliza','cantidad'];
   //query scope
   public function scopeBuscar($query, $tema)
   {

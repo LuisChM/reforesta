@@ -13,24 +13,31 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;600&display=swap" rel="stylesheet">
+
 
     <!-- Styles -->
+    <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <header class="header">
-
-        <h1>#ReforestaChallenge</h1>
-
+    <header>
+        <div class="contenido-hero d-flex justify-content-center align-items-center">
+            <h1 class="titulo">#ReforestaChallenge</h1>
+        </div>
     </header>
+
+    @include('partial.navInicio')
+
+    
     <div class="album py-5 bg-light">
         <div class="container">
+            <h2 class="font-weight-bold text-center mt-5 mt-lg-0 mb-3">Nuestros Árboles</h2>
+
 
             <div class="row">
                 @foreach ($datosArbol as $datosArbols)
@@ -79,6 +86,12 @@
             </div>
         </div>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">+506 2101-5332 | ronny@gaia.gives</span>
+        </div>
+    </footer>
+
 </body>
 
 </html>

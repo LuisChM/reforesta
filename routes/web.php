@@ -33,6 +33,7 @@ Route::resource('datosArbol', 'DatosArbolController')->names('datosArbols');
 Route::resource('historialEvento', 'HistorialEventosController')->names('historialEventos');
 Route::resource('contador', 'ContadorController')->names('contadors');
 Route::resource('patrocinador', 'PatrocinadorController')->names('patrocinadors');
+Route::resource('paginaPrincipal', 'PaginaprincipalController')->names('paginaPrincipals');
 
 Route::resource('evento', 'EventoController')->names('eventos');
 
