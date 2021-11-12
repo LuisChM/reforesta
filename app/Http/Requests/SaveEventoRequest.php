@@ -24,9 +24,9 @@ class SaveEventoRequest extends FormRequest
     public function rules()
     {
         return [
-            'tema' => 'required',       
+            'tema' => 'required|unique:eventos,tema',       
             'estado' => 'required',       
-            'descripcion' => 'nullable',       
+            'descripcion' => 'nullable|unique:eventos,descripcion',       
             'direccion' => 'nullable',       
             'distrito' => 'nullable',       
             'lat' => 'nullable',       

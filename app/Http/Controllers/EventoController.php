@@ -80,7 +80,7 @@ class EventoController extends Controller
         $id =  Crypt::decrypt($id);
         $evento = Evento::find($id);
 
-        $arboles = DatosArbol::all();
+        $arboles = DatosArbol::pluck('nombrePopular', 'id');
 
         return view('eventos.edit', compact('evento', 'arboles'));
     }

@@ -25,8 +25,8 @@ class SaveDatosArbolRequest extends FormRequest
     {
         return [
             'imagen' => 'required|image',
-            'nombrePopular' => 'nullable|unique:datos_arbols,nombrePopular',
-            'nombreCientifico' => 'nullable|unique:datos_arbols,nombreCientifico',
+            'nombrePopular' => 'required|unique:datos_arbols,nombrePopular',
+            'nombreCientifico' => 'required|unique:datos_arbols,nombreCientifico',
             'descripcion' => 'nullable',       
          ];
     }

@@ -13,113 +13,192 @@ td {
 
 html {
     box-sizing: border-box;
-    font-size: 62.5%!important;
+    font-size: 62.5% !important;
     scroll-behavior: smooth;
-  }
-  
-  *,
-  *:before,
-  *:after {
+    min-height: 100%;
+    position: relative;
+}
+
+*,
+*:before,
+*:after {
     box-sizing: inherit;
-  }
-  body {
+}
+body {
     font-size: 16px;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-  }
-  
-  p {
+}
+
+p {
     font-size: 1.5rem;
-  }
-  
-  h2{
-      font-size: 2.8rem;
-  }
-  
-  .contenido-hero {
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+button.navbar-toggler {
+    background-color: #c2cd799c;
+}
+
+.navbar-nav .nav-item .nav-link {
+    padding: 1.1em 1em !important;
+    font-size: 135%;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.navbar-nav .nav-item .nav-link.txt-black {
+    color: #000;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: #77c608;
+}
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    border-top: 3px solid #77c608;
+}
+.dropdown-item:hover {
+    background-color: #77c608;
+    color: #fff;
+}
+nav {
+    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+    -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+    border: none;
+}
+
+.shrink {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #212529;
+}
+.banner {
     background-image: url(/img/leaves-hero.jpg);
+    text-align: center;
+    color: #fff;
     background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
     background-size: cover;
-    background-position: center;
-    height: 45rem;
-  }
-  
-  .titulo {
+}
+.banner::before {
+    content: "";
+
+    background-color: rgba(0, 0, 0, 0.61);
+}
+.banner-secondary {
+    position: relative;
+    // height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-secondary::before {
+    content: "";
+    background-image: url(/img/costa-rica-g2a5989e61_1920.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+
+.banner-text {
+    padding: 200px 0 150px 0;
+}
+.banner-heading {
+    position: relative;
+    line-height: 100px;
+    margin-bottom: 30px;
     color: #ececec;
-    font-size: 2.5rem;
+    font-size: 7.5rem;
     font-weight: bold;
-  }
-  
-  @media (min-width: 768px) {
-    .titulo {
-      font-size: 5rem;
+    text-align: center;
+}
+
+/* mobile view */
+@media (max-width: 480px) {
+    .navbar-nav {
+        background-color: #000;
+        border-top: 3px solid #77c608;
+        color: rgb(100, 98, 98);
+        z-index: 1;
+        margin-top: 5px;
     }
-  }
-  
-  .nav-inicio {
-    background-color: #e9b97c;
-  }
-  
-  .nav-inicio a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.5rem;
-    padding: 1.8rem;
-    transition: 0.3s;
-  }
-  
-  .nav-inicio a:hover {
-    background-color: #cf974f;
-    color: whitesmoke;
-  }
-  
-  @media (min-width: 768px) {
-    .nav-inicio a {
-      font-size: 2.5rem;
+    .navbar-nav .nav-item .nav-link {
+        padding: 0.7em 1em !important;
+        font-size: 100%;
+        font-weight: 500;
     }
-  }
-  
-  .section-margin{
-  padding: 6rem 0;
-  }
-  
-  .imagen-main, .imagen-contador{
-      height: 35rem;
-      width: 100%;
-  }
-  @media ( min-width: 768px ) {
-      .imagen-main{
-          height: 40rem;
-          width: 50rem;/*58*/
-      }
-      .imagen-contador{
+    .banner-text {
+        padding: 150px 0 150px 0;
+    }
+    .banner-heading {
+        font-size: 30px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-text {
+        padding: 150px 0 150px 0;
+    }
+}
+
+.box-shadow:hover {
+    -webkit-box-shadow: 0px 0px 48px -9px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 48px -9px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 48px -9px rgba(0, 0, 0, 0.75);
+}
+
+.section-margin {
+    padding: 6rem 0;
+}
+
+.imagen-main,
+.imagen-contador {
+    height: 35rem;
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .imagen-main {
+        height: 40rem;
+        width: 50rem; /*58*/
+    }
+    .imagen-contador {
         height: 70rem;
-      }
-  }
-  
-  @media ( max-width: 768px ) {
-      .centrar-imagen{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      }
-  }
-  
-  .numero-contador{
+    }
+}
+
+@media (max-width: 768px) {
+    .centrar-imagen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.numero-contador {
     font-size: 8rem;
     font-weight: bold;
-    color: #60b644;}
-  
-    .footer {
-      position: absolute;
-      /* bottom: 0; */
-      width: 100%;
-      height: 60px; /* Set the fixed height of the footer here */
-      line-height: 60px; /* Vertically center the text there */
-      background-color: #dfe6e9;
-      text-align: center;
-    }
-  
-  
+    color: #60b644;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #dfe6e9;
+    text-align: center;
+}

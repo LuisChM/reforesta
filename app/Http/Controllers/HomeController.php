@@ -38,12 +38,9 @@ class HomeController extends Controller
 
     public function eventoActual(Evento $evento, $id)
     {
-        // return view('evento',[
-        //     'evento'=>$evento,
-        // ]);   
         $id =  Crypt::decrypt($id);
         $evento = Evento::find($id);
-        return view('evento', compact('evento'));
+        return view('detalleEvento', compact('evento'));
     }
 
     public function eventoPasado()

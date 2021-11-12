@@ -19,20 +19,46 @@
 </head>
 
 <body>
-
     <header>
-        <div class="contenido-hero d-flex justify-content-center align-items-center">
-            <h1 class="titulo">#ReforestaChallenge</h1>
-        </div>
-    </header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="banner">
+            <div class="container">
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    @include('partial.navInicio')
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#eventos">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('eventoPasado')}}">Eventos Pasados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('nuestroArbol')}}">Nuestros Árboles</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="banner">
+        <div class="container">
+            <div class="banner-text">
+                <div class="banner-heading ">
+                    #ReforestaChallenge
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="container">
         <article class="mt-5">
             <h2 class="font-weight-bold text-center mt-5 mt-lg-0 mb-3">Sobre Nosotros</h2>
             @if (!is_null($paginaPrincipal))
-            <p>{{$paginaPrincipal->nosotros}}</p>
+            <p class="text-center">{{$paginaPrincipal->nosotros}}</p>
             @endif
         </article><!-- /article sobre nosotros -->
 
@@ -44,7 +70,7 @@
                 <div class="col-lg-5">
                     <h2 class="font-weight-bold text-center mt-5 mt-lg-0">Misión</h2>
                     @if (!is_null($paginaPrincipal))
-                    <p class="text-justify">{{$paginaPrincipal->mision}}</p>
+                    <p class="text-center">{{$paginaPrincipal->mision}}</p>
                     @endif
                 </div>
             </div>
@@ -55,7 +81,7 @@
                 <div class="col-lg-5">
                     <h2 class="font-weight-bold text-center mt-5 mt-lg-0">Visión</h2>
                     @if (!is_null($paginaPrincipal))
-                    <p class="text-justify">{{$paginaPrincipal->vision}}</p>
+                    <p class="text-center">{{$paginaPrincipal->vision}}</p>
                     @endif
                 </div>
                 <div class="col-lg-7 centrar-imagen d-flex justify-content-lg-end">
@@ -105,7 +131,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{$eventos->tema}}</h5>
                                 <p class="card-text">Fecha: {{$eventos->fecha}}</p>
-                                <p class="card-text">Hora: {{$eventos->hora}}</p>
+                                <p class="card-text">Hora Inicio: {{$eventos->horaInicio}}</p>
+                                <p class="card-text">Hora Finaliza: {{$eventos->horaFinaliza}}</p>
                                 <p class="card-text">Punto de encuentro: {{$eventos->direccion}}</p>
                                 <a href="{{ url('detalleEvento/'.Crypt::encrypt($eventos->id))}}"
                                     class="btn btn-primary">Ver detalles</a>

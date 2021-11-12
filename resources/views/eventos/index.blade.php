@@ -34,7 +34,7 @@
 
             <tr>
                 <td>{{ $eventos->tema }}</td>
-                <td>{{ $eventos->descripcion }}</td>
+                <td class="text-truncate d-inline-block" style="max-width: 300px;">{{ $eventos->descripcion }}</td>
                 <td>{{ $eventos->fecha }}</td>
                 <td>{{ $eventos->horaInicio }}</td>
                 <td>{{ $eventos->horaFinaliza }}</td>

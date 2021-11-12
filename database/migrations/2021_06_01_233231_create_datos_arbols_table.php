@@ -16,8 +16,8 @@ class CreateDatosArbolsTable extends Migration
         Schema::create('datos_arbols', function (Blueprint $table) {
             $table->id();
             $table->string('imagen');
-            $table->string('nombrePopular')->nullable()->unique();
-            $table->string('nombreCientifico')->nullable()->unique();
+            $table->string('nombrePopular')->unique();
+            $table->string('nombreCientifico')->unique();
             $table->longText('descripcion')->nullable();
             $table->timestamps();
         });

@@ -27,22 +27,18 @@
 </head>
 
 <body>
-    <header class="header">
+    @include('partial.heroNav',['titulo'=>'Detalle del Evento'])
 
-        <div class="text-center pt-5 justify-content-center">
-            <h1 class="text-white text-uppercase">Detalle del evento</h1>
-        </div>
-
-    </header>
     <div class="container mt-4">
         <h3 class="text-center">{{$evento->tema}}</h3>
 
         <p>{{$evento->descripcion}}</p>
-        <p>Direccion: {{$evento->direccion}}, {{$evento->distrito}}</p>
         <p>Fecha: {{$evento->fecha}}</p>
-        <p>Hora: {{$evento->hora}}</p>
-
-        <h1>Aqui el mapa</h1>
+        <p>Hora Inicio: {{$evento->horaInicio}}</p>
+        <p>Hora Finaliza: {{$evento->horaFinaliza}}</p>
+        <p>Estaremos sembrando: {{$evento->cantidad}} árboles</p>
+        
+        <p>Direccion: {{$evento->direccion}}, {{$evento->distrito}}</p>
 
         <div class="form-group">
             <div id="mapa" style="height: 400px;"></div>
