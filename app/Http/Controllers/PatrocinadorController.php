@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\SavePatrocinioRequest;
+use App\Http\Requests\UpdatePatrocinioResquest;
 
 class PatrocinadorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -51,17 +56,6 @@ class PatrocinadorController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Patrocinador  $patrocinador
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Patrocinador $patrocinador)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Patrocinador  $patrocinador
@@ -81,7 +75,7 @@ class PatrocinadorController extends Controller
      * @param  \App\Patrocinador  $patrocinador
      * @return \Illuminate\Http\Response
      */
-    public function update(SavePatrocinioRequest $request, $id)
+    public function update(UpdatePatrocinioResquest $request, $id)
     {
         $dato = $request->validated();
 

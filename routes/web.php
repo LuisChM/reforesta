@@ -17,13 +17,13 @@ use App\Http\Controllers\DatosArbolController;
 */
 
 
-Route::get('storage:link', function () {
-    Artisan::call('storage:link');
-});
+// Route::get('storage:link', function () {
+//     Artisan::call('storage:link');
+// });
 
 Auth::routes(['register' => false]);
-// Auth::routes(['register' => false]);
 
+Route::view('/entradaAdmin', 'entradaAdmin');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('detalleEvento/{id}', 'HomeController@eventoActual')->name('home');
 Route::get('eventoPasado', 'HomeController@eventoPasado')->name('home');

@@ -29,7 +29,7 @@
 <body>
     @include('partial.heroNav',['titulo'=>'Detalle del Evento'])
 
-    <div class="container mt-4">
+    <div class="container">
         <h3 class="text-center">{{$evento->tema}}</h3>
 
         <p>{{$evento->descripcion}}</p>
@@ -37,17 +37,14 @@
         <p>Hora Inicio: {{$evento->horaInicio}}</p>
         <p>Hora Finaliza: {{$evento->horaFinaliza}}</p>
         <p>Estaremos sembrando: {{$evento->cantidad}} árboles</p>
-        
         <p>Direccion: {{$evento->direccion}}, {{$evento->distrito}}</p>
+        <div id="mapa" class="mb-3 position-sticky" style="height: 400px;"></div>
 
-        <div class="form-group">
-            <div id="mapa" style="height: 400px;"></div>
-        </div>
         <input type="hidden" name="lat" id="lat" value="{{$evento->lat}}">
         <input type="hidden" name="lng" id="lng" value="{{$evento->lng}}">
     </div>
 
-    @include('partial.footer')   
+    @include('partial.footer')
 
 
     <script src="{{ asset('js/app.js') }}"></script>

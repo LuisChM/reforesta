@@ -11,7 +11,8 @@ class Evento extends Model
   public function scopeBuscar($query, $tema)
   {
     if ($tema) {
-      return $query->where('tema', 'LIKE', "%$tema%");
+      return $query->where('tema', 'LIKE', "%$tema%")
+      ;
     }
   }
 

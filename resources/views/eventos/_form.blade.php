@@ -111,15 +111,6 @@
     </div>
 </div>
 
-{{--
-
-buscador a todos las opciones
-
-add cantidad de arboles en eventos
-
-
---}}
-
 <div class="form-group ">
     <label for="estado">Estado de la publicación</label>
     <br>

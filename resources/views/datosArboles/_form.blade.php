@@ -23,7 +23,12 @@
             </div>
         </div>
     </div>
-    <input type="file" class="form-control-file" name="imagen" id="imagen" accept="image/*">
+    <input type="file" class="form-control-file @error('imagen') is-invalid @enderror" name="imagen" id="imagen" accept="image/*">
+    @error('imagen')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{$message}}</strong>
+    </span>
+    @enderror
 </div>
 
 <div class="form-group">

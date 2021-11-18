@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\SaveDatosArbolRequest;
+use App\Http\Requests\UpdateDatosArbolResquest;
 
 class DatosArbolController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -54,18 +55,7 @@ class DatosArbolController extends Controller
             $datoArbol->imagen = $request->file('imagen')->store('uploads', 'public');
         }
         $datoArbol->save();
-        return redirect()->route('datosArbols.index')->with('toast_success', 'Datos Creados');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\DatosArbol  $datosArbol
-     * @return \Illuminate\Http\Response
-     */
-    public function show(DatosArbol $datosArbol)
-    {
-        //
+        return redirect()->route('datosArbols.index');
     }
 
     /**
@@ -89,7 +79,7 @@ class DatosArbolController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(SaveDatosArbolRequest $request, $id)
+    public function update(UpdateDatosArbolResquest $request, $id)
     {
         $dato = $request->validated();
 
@@ -102,7 +92,7 @@ class DatosArbolController extends Controller
 
         $datoArbol = DatosArbol::findOrFail($id);
 
-        return redirect()->route('datosArbols.index')->with('toast_success', 'Datos Actualizados');
+        return redirect()->route('datosArbols.index');
     }
 
 

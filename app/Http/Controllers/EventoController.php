@@ -12,8 +12,9 @@ class EventoController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +24,10 @@ class EventoController extends Controller
     {
         $tema  = $request->get('buscarpor');
 
-        $evento = Evento::orderBy('created_at', 'ASC')->buscar($tema)->where('estado', 'activo')->orWhere('estado', 'borrador')->paginate();
+        $evento = Evento::orderBy('created_at', 'ASC')->buscar($tema)->where(function ($query) {
+            $query->where('estado', 'activo')
+                ->orWhere('estado', 'borrador');
+        })->paginate();
         return view('eventos.index', compact('evento'));
     }
 
@@ -34,7 +38,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        
+
         $arboles = DatosArbol::pluck('nombrePopular', 'id');
 
         return view('eventos.create', [
@@ -56,17 +60,6 @@ class EventoController extends Controller
         $evento->save();
 
         return redirect()->route('eventos.index')->with('toast_success', 'Datos Creados');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Evento  $evento
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Evento $evento)
-    {
-        //
     }
 
     /**

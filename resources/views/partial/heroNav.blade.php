@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/#eventos">Eventos</a>
+                        <a class="nav-link text-black" href="/#eventos">Eventos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('eventoPasado')}}">Eventos Pasados</a>
